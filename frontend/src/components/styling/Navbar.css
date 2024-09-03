@@ -1,6 +1,6 @@
 .navbar {
   display: flex;
-  padding: 26px;
+  padding: 26px 12px;
   background-color: var(--dark-color);
   opacity: 0.4;
   width: 100%;
@@ -11,7 +11,7 @@
 }
 
 .navList {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   list-style-type: none;
   display: flex;
@@ -28,6 +28,34 @@
   color: var(--light-color);
 }
 
+.navListItems .logoutButton {
+  all: unset;
+  background-color: none;
+  color: var(--light-color);
+}
+
+.loadingSpinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.spinnerIcon {
+  font-size: 50px;
+  color: #333;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @media (min-width: 745px) {
   .logoIcon {
     height: 70px;
@@ -38,19 +66,27 @@
   }
 
   .navList {
-    font-size: 32px;
+    font-size: 24px;
   }
 
   .navListItems {
-    margin: 0 24px;
+    margin: 0 16px;
+  }
+
+  .loadingSpinner {
+    height: 300px;
+  }
+
+  .spinnerIcon {
+    font-size: 70px;
   }
 }
 
 @media (min-width: 1024px) {
   .navbar {
-    padding: 51px 62px;
+    padding: 51px 64px;
   }
   .navListItems {
-    margin: 0 52px;
+    margin: 0 24px;
   }
 }

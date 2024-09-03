@@ -1,9 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import "./styling/Navbar.css";
 
 const Navbar = () => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
 
   return (
     <nav className="navbar">
@@ -32,6 +38,12 @@ const Navbar = () => {
               <Link to="/profile" className="navLink">
                 Cart
               </Link>
+            </li>
+
+            <li className="navListItems">
+              <button onClick={handleLogout} className="logoutButton">
+                Log out
+              </button>
             </li>
           </>
         )}
